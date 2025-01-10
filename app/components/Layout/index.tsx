@@ -2,7 +2,6 @@
 import { usePathname } from 'next/navigation';
 // import { Email, Footer, Head, Loader, Nav, Social } from '@components';
 import React, { useEffect, useState } from 'react';
-import Nav from '../Navbar';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
@@ -34,6 +33,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           el.scrollIntoView();
           el.focus();
         }
+        setIsLoading(false);
       }, 0);
     }
 

@@ -17,7 +17,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-calibre), sans-serif;
+  font-family: var(--font-roboto), sans-serif;
 }
 
 @layer utilities {
@@ -27,7 +27,7 @@ body {
 }
 
 /* Fade up */
-.fadeup-enter {
+.fadeup {
   opacity: 0.01;
   transform: translateY(20px);
   transition: opacity 300ms var(--easing), transform 300ms var(--easing);

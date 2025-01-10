@@ -13,8 +13,8 @@ const config: Config = {
         foreground: 'var(--foreground)'
       },
       fontFamily: {
-        calibre: ['var(--font-calibre)', 'sans-serif'],
-        sfMono: ['var(--font-SFMono)', 'monospace']
+        roboto: ['var(--font-roboto)', 'sans-serif'],
+        inconsolata: ['var(--font-inconsolata)', 'monospace']
       }
     }
   },

@@ -1,7 +1,7 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const Hero = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -13,7 +13,7 @@ const Hero = () => {
 
   const one = (
     <h1
-      className='m-0 mb-6 ml-1 text-emerald-300 font-sfMono max-[480px]:mb-4 max-[480px]:ml-0.5'
+      className='m-0 mb-6 ml-1 text-emerald-300 font-inconsolata max-[480px]:mb-4 max-[480px]:ml-0.5'
       style={{ fontSize: 'clamp(14px, 5vw, 16px)' }}
     >
       Hi, my name is
@@ -37,9 +37,9 @@ const Hero = () => {
   );
   const four = (
     <p className='mt-4 max-w-xl text-lg text-stone-400 leading-snug sm:text-xl'>
-      I’m a frontend engineer specializing in building exceptional digital
-      experiences. Currently, I’m focused on building accessible, human-centered
-      products at{' '}
+      I’m a frontend engineer specializing in building exceptional experiences,
+      with the best practices and focused in bring the best experience for the
+      user. Currently, I’m current working at{' '}
       <a
         href='https://globant.com/'
         target='_blank'
@@ -52,25 +52,40 @@ const Hero = () => {
     </p>
   );
   const five = (
-    <p className='mt-24 text-4xl text-stone-100 leading-snug animate-pulse'>
+    <p className='mt-24 text-4xl text-stone-100 leading-snug animate-bounce'>
       Soon more about me, my projects and my journey. Stay tuned!
     </p>
   );
 
   const items = [one, two, three, four, five];
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3
+      }
+    }
+  };
+  const itemVariant = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1 }
+  };
+
   return (
     <section className='flex justify-center flex-col items-start min-h-screen h-screen p-0'>
-      <TransitionGroup component={null}>
-        {isMounted &&
-          items.map((item, i) => (
-            <CSSTransition key={i} classNames='fadeup' timeout={2000}>
-              <div key={i} style={{ transitionDelay: `${i + 1}00ms` }}>
+      {isMounted && (
+        <motion.ol variants={container} initial='hidden' animate='show'>
+          {items.map((item, i) => {
+            return (
+              <motion.li key={i} variants={itemVariant}>
                 {item}
-              </div>
-            </CSSTransition>
-          ))}
-      </TransitionGroup>
+              </motion.li>
+            );
+          })}
+        </motion.ol>
+      )}
     </section>
   );
 };
