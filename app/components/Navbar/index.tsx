@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import { navLinks } from './links';
 import Link from 'next/link';
+import { navLinks } from './links';
 import Menu from './Menu';
 
 interface NavProps {

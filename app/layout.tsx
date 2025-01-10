@@ -1,5 +1,5 @@
+import { Inconsolata, Roboto } from 'next/font/google';
 import './globals.css';
-import { Roboto, Inconsolata } from 'next/font/google';
 
 export const metadata = {
   title: 'Next.js',
